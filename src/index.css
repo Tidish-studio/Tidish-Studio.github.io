@@ -6,12 +6,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body,
-#app,
-#app > div {
-    height: 100%;
-}
+body > #root > div {
+    height: 100vh;
+    background-color: #121212;
+  }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;

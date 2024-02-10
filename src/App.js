@@ -1,20 +1,17 @@
+import { Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import * as React from 'react';
 import Item from './Item';
-
-const darkTheme = createTheme({ palette: { mode: 'dark' } });
 
 function App() {
     return (
         <div className="App">
-            <ThemeProvider theme={darkTheme}>
-                
+                <Container sx={{bgcolor: 'background.default'}}>
                 <Box
                     sx={{
                         bgcolor: 'background.default',
-                        height: '100vh',
+                        height: '100%',
                         width: '100%',
                         display: 'flex',
                         flexDirection: 'column',
@@ -37,7 +34,7 @@ function App() {
                     <Item text={'Strixhaven: A Curriculum of Chaos'} fileName={'spells-scc.json'} />
                     <Item text={'Icewind Dale - Rime of the Frostmaiden'} fileName={'spells-idrotf.json'} />
                 </Box>
-            </ThemeProvider>
+                </Container>
         </div>
     );
 }
