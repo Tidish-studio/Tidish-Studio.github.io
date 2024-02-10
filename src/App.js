@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
@@ -7,7 +6,6 @@ import Item from './Item';
 function App() {
     return (
         <div className="App">
-                <Container sx={{bgcolor: 'background.default'}}>
                 <Box
                     sx={{
                         bgcolor: 'background.default',
@@ -19,7 +17,7 @@ function App() {
                         justifyContent: 'center'
                     }}
                 >
-                    <Typography variant="h2" gutterBottom color={'white'}>
+                    <Typography variant="h3" gutterBottom color={'white'}>
                         Choose Spells
                     </Typography>
                     <Item text={'All The Spells'} fileName={'spells-all.json'} />
@@ -34,7 +32,7 @@ function App() {
                     <Item text={'Strixhaven: A Curriculum of Chaos'} fileName={'spells-scc.json'} />
                     <Item text={'Icewind Dale - Rime of the Frostmaiden'} fileName={'spells-idrotf.json'} />
                 </Box>
-                </Container>
+                
         </div>
     );
 }
