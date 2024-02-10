@@ -1,0 +1,339 @@
+[
+	{
+		"name": "Create Magen",
+		"source": "IDRotF",
+		"page": 318,
+		"level": 7,
+		"school": "T",
+		"time": [
+			{
+				"number": 1,
+				"unit": "hour"
+			}
+		],
+		"range": {
+			"type": "point",
+			"distance": {
+				"type": "touch"
+			}
+		},
+		"components": {
+			"v": true,
+			"s": true,
+			"m": {
+				"text": "a vial of quicksilver worth 500 gp and a life-sized human doll, both of which the spell consumes, and an intricate crystal rod worth at least 1,500 gp that is not consumed",
+				"cost": 50000,
+				"consume": true
+			}
+		},
+		"duration": [
+			{
+				"type": "instant"
+			}
+		],
+		"entries": [
+			"While casting the spell, you place a vial of quicksilver in the chest of a life-sized human doll stuffed with ash or dust. You then stitch up the doll and drip your blood on it. At the end of the casting, you tap the doll with a crystal rod, transforming it into a {@filter magen|bestiary|search=magen|source=IDRotF} clothed in whatever the doll was wearing. The type of magen is chosen by you during the casting of the spell. See {@adventure appendix C|IDRotF|21} for different kinds of magen and their statistics.",
+			"When the magen appears, your hit point maximum decreases by an amount equal to the magen's challenge rating (minimum reduction of 1). Only a {@spell wish} spell can undo this reduction to your hit point maximum.",
+			"Any magen you create with this spell obeys your commands without question."
+		],
+		"areaTags": [
+			"ST"
+		],
+		"__prop": "spell",
+		"classes": {
+			"fromClassList": [
+				{
+					"name": "Wizard",
+					"source": "PHB"
+				}
+			],
+			"fromSubclass": [
+				{
+					"class": {
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					"subclass": {
+						"name": "Arcana Domain",
+						"shortName": "Arcana",
+						"source": "SCAG"
+					}
+				}
+			]
+		},
+		"_isMutEntity": true,
+		"_tmpSourcesInit": true,
+		"_tmpClasses": {},
+		"_tmpRaces": [],
+		"_tmpBackgrounds": [],
+		"_tmpFeats": [],
+		"_tmpOptionalfeatures": [],
+		"_tmpGroups": [],
+		"_normalisedTime": 3600,
+		"_normalisedRange": 1,
+		"_fSources": "IDRotF",
+		"_isConc": false,
+		"_fMeta": [
+			"Verbal",
+			"Somatic",
+			"Material",
+			"Material with Cost",
+			"Material is Consumed"
+		],
+		"_fClasses": [
+			{
+				"item": "Wizard",
+				"userData": {
+					"group": 0
+				},
+				"rendered": null,
+				"searchText": null
+			}
+		],
+		"_fSubclasses": [
+			{
+				"item": "Cleric: Arcana",
+				"nest": "Cleric",
+				"userData": {
+					"group": false
+				},
+				"rendered": null,
+				"searchText": null
+			}
+		],
+		"_fVariantClasses": [],
+		"_fClassesAndVariantClasses": [
+			{
+				"item": "Wizard",
+				"userData": {
+					"group": 0
+				},
+				"rendered": null,
+				"searchText": null
+			}
+		],
+		"_fRaces": [],
+		"_fBackgrounds": [],
+		"_fFeats": [],
+		"_fOptionalfeatures": [],
+		"_fGroups": [],
+		"_fTimeType": [
+			"hour"
+		],
+		"_fDurationType": "Instant",
+		"_fRangeType": "Touch",
+		"_fAreaTags": [
+			"ST"
+		],
+		"_fAffectsCreatureType": [
+			"aberration",
+			"beast",
+			"celestial",
+			"construct",
+			"dragon",
+			"elemental",
+			"fey",
+			"fiend",
+			"giant",
+			"humanoid",
+			"monstrosity",
+			"ooze",
+			"plant",
+			"undead"
+		]
+	},
+	{
+		"name": "Frost Fingers",
+		"source": "IDRotF",
+		"page": 318,
+		"level": 1,
+		"school": "V",
+		"time": [
+			{
+				"number": 1,
+				"unit": "action"
+			}
+		],
+		"range": {
+			"type": "cone",
+			"distance": {
+				"type": "feet",
+				"amount": 15
+			}
+		},
+		"components": {
+			"v": true,
+			"s": true
+		},
+		"duration": [
+			{
+				"type": "instant"
+			}
+		],
+		"entries": [
+			"Freezing cold blasts from your fingertips in a 15-foot cone. Each creature in that area must make a Constitution saving throw, taking {@damage 2d8} cold damage on a failed save, or half as much damage on a successful one.",
+			"The cold freezes nonmagical liquids in the area that aren't being worn or carried."
+		],
+		"entriesHigherLevel": [
+			{
+				"type": "entries",
+				"name": "At Higher Levels",
+				"entries": [
+					"When you cast this spell using a spell slot of 2nd level or higher, the damage increases by {@dice 1d8} for each slot level above 1st."
+				]
+			}
+		],
+		"damageInflict": [
+			"cold"
+		],
+		"savingThrow": [
+			"constitution"
+		],
+		"areaTags": [
+			"N"
+		],
+		"__prop": "spell",
+		"classes": {
+			"fromClassList": [
+				{
+					"name": "Wizard",
+					"source": "PHB"
+				}
+			],
+			"fromSubclass": [
+				{
+					"class": {
+						"name": "Fighter",
+						"source": "PHB"
+					},
+					"subclass": {
+						"name": "Eldritch Knight",
+						"shortName": "Eldritch Knight",
+						"source": "PHB"
+					}
+				},
+				{
+					"class": {
+						"name": "Rogue",
+						"source": "PHB"
+					},
+					"subclass": {
+						"name": "Arcane Trickster",
+						"shortName": "Arcane Trickster",
+						"source": "PHB"
+					}
+				}
+			]
+		},
+		"feats": [
+			{
+				"name": "Divinely Favored",
+				"source": "UA2022HeroesOfKrynn"
+			},
+			{
+				"name": "Initiate of High Sorcery",
+				"source": "UA2022HeroesOfKrynn"
+			},
+			{
+				"name": "Magic Initiate",
+				"source": "PHB"
+			},
+			{
+				"name": "Strixhaven Initiate",
+				"source": "SCC"
+			}
+		],
+		"_isMutEntity": true,
+		"_tmpSourcesInit": true,
+		"_tmpClasses": {},
+		"_tmpRaces": [],
+		"_tmpBackgrounds": [],
+		"_tmpFeats": [],
+		"_tmpOptionalfeatures": [],
+		"_tmpGroups": [],
+		"_normalisedTime": 1,
+		"_normalisedRange": 182,
+		"_fSources": "IDRotF",
+		"_isConc": false,
+		"_fMeta": [
+			"Verbal",
+			"Somatic",
+			"SCL"
+		],
+		"_fClasses": [
+			{
+				"item": "Wizard",
+				"userData": {
+					"group": 0
+				},
+				"rendered": null,
+				"searchText": null
+			}
+		],
+		"_fSubclasses": [
+			{
+				"item": "Fighter: Eldritch Knight",
+				"nest": "Fighter",
+				"userData": {
+					"group": false
+				},
+				"rendered": null,
+				"searchText": null
+			},
+			{
+				"item": "Rogue: Arcane Trickster",
+				"nest": "Rogue",
+				"userData": {
+					"group": false
+				},
+				"rendered": null,
+				"searchText": null
+			}
+		],
+		"_fVariantClasses": [],
+		"_fClassesAndVariantClasses": [
+			{
+				"item": "Wizard",
+				"userData": {
+					"group": 0
+				},
+				"rendered": null,
+				"searchText": null
+			}
+		],
+		"_fRaces": [],
+		"_fBackgrounds": [],
+		"_fFeats": [
+			"Divinely Favored",
+			"Initiate of High Sorcery",
+			"Magic Initiate",
+			"Strixhaven Initiate"
+		],
+		"_fOptionalfeatures": [],
+		"_fGroups": [],
+		"_fTimeType": [
+			"action"
+		],
+		"_fDurationType": "Instant",
+		"_fRangeType": "Self (Area)",
+		"_fAreaTags": [
+			"N"
+		],
+		"_fAffectsCreatureType": [
+			"aberration",
+			"beast",
+			"celestial",
+			"construct",
+			"dragon",
+			"elemental",
+			"fey",
+			"fiend",
+			"giant",
+			"humanoid",
+			"monstrosity",
+			"ooze",
+			"plant",
+			"undead"
+		]
+	}
+]
