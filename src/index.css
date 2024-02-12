@@ -9,8 +9,8 @@ body {
 body > #root {
     height: 100vh;
     width: 100vw;
-    background-color: #121212;
-  }
+    /* background-color: #121212; */
+}
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
