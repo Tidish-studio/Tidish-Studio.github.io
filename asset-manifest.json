@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Spellbook/static/css/main.6355d31b.css",
-    "main.js": "/Spellbook/static/js/main.8fc6e66d.js",
+    "main.css": "/Spellbook/static/css/main.8eebf51e.css",
+    "main.js": "/Spellbook/static/js/main.e68a8b93.js",
     "static/js/592.dffadb8a.chunk.js": "/Spellbook/static/js/592.dffadb8a.chunk.js",
     "index.html": "/Spellbook/index.html",
-    "main.6355d31b.css.map": "/Spellbook/static/css/main.6355d31b.css.map",
-    "main.8fc6e66d.js.map": "/Spellbook/static/js/main.8fc6e66d.js.map",
+    "main.8eebf51e.css.map": "/Spellbook/static/css/main.8eebf51e.css.map",
+    "main.e68a8b93.js.map": "/Spellbook/static/js/main.e68a8b93.js.map",
     "592.dffadb8a.chunk.js.map": "/Spellbook/static/js/592.dffadb8a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6355d31b.css",
-    "static/js/main.8fc6e66d.js"
+    "static/css/main.8eebf51e.css",
+    "static/js/main.e68a8b93.js"
   ]
 }
