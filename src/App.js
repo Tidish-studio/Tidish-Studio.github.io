@@ -21,7 +21,7 @@ function App() {
                         Choose Spells
                     </Typography>
                     <Item text={'All The Spells'} fileName={'spells-all.json'} />
-                    <Item text={'Player\'s handbook'} fileName={'spells-srd.json'} />
+                    {/* <Item text={'Player\'s handbook'} fileName={'spells-srd.json'} /> */}
                     <Item text={'Xanathar\'s Guide to Everything'} fileName={'spells-xge.json'} />
                     <Item text={'Guildmaster\'s Guide to Ravnica'} fileName={'spells-ggr.json'} />
                     <Item text={'Acquisitions Incorporated'} fileName={'spells-ai.json'} />
@@ -31,8 +31,7 @@ function App() {
                     <Item text={'Astral Adventurer\'s Guide'} fileName={'spells-aag.json'} />
                     <Item text={'Strixhaven: A Curriculum of Chaos'} fileName={'spells-scc.json'} />
                     <Item text={'Icewind Dale - Rime of the Frostmaiden'} fileName={'spells-idrotf.json'} />
-                </Box>
-                
+                </Box>                
         </div>
     );
 }
