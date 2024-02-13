@@ -83,7 +83,7 @@ const PrivacyPolicy = () => {
             <p>
                 Cookies are files with a small amount of data that are commonly used as anonymous
                 unique identifiers. These are sent to your browser from the websites that you visit
-                and are stored on your device's internal memory.
+                and are stored on your device&apos;s internal memory.
             </p>{' '}
             <p>
                 This Service does not use these “cookies” explicitly. However, the app may use
@@ -127,7 +127,7 @@ const PrivacyPolicy = () => {
                 privacy policies, or practices of any third-party sites or services.
             </p>{' '}
             <p>
-                <strong>Children’s Privacy</strong>
+                <strong>Children&apos;s Privacy</strong>
             </p>{' '}
             <div>
                 <p>
