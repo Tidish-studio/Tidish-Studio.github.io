@@ -20,7 +20,7 @@ const SpellsPage = () => {
                 Choose Spells
             </Typography>
             <Item text={'All The Spells'} fileName={'spells-all.json'} />
-            <Item text={"Player's handbook"} fileName={'spells-nsrd.json'} />
+            <Item text={"Player's handbook"} fileName={'spells-phb.json'} />
             <Item text={"Xanathar's Guide to Everything"} fileName={'spells-xge.json'} />
             <Item text={"Guildmaster's Guide to Ravnica"} fileName={'spells-ggr.json'} />
             <Item text={'Acquisitions Incorporated'} fileName={'spells-ai.json'} />
