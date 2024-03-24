@@ -34,8 +34,9 @@ const PrivacyPolicy = () => {
                 For a better experience, while using our Service, I may require you to provide us
                 with certain personally identifiable information, including but not limited to
                 <ul>
-                    <li> Storage</li>
-                    <li> Accounts</li>
+                    <li> Pictures and Camera</li>
+                    <li> Voice</li>
+                    <li> Storage</li> <li> Accounts</li>
                 </ul>
             </p>{' '}
             <div>
