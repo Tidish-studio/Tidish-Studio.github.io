@@ -30,6 +30,7 @@ const SpellsPage = () => {
             <Item text={"Astral Adventurer's Guide"} fileName={'spells-aag.json'} />
             <Item text={'Strixhaven: A Curriculum of Chaos'} fileName={'spells-scc.json'} />
             <Item text={'Icewind Dale - Rime of the Frostmaiden'} fileName={'spells-idrotf.json'} />
+            <Item text={'New all spells - DO NOT IMPORT'} fileName={'spells-all-new.json'} />
         </Box>
     );
 };
