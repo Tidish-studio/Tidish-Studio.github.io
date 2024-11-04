@@ -21,6 +21,7 @@ const SpellsPage = () => {
             </Typography>
             <Item text={'All The Spells'} fileName={'spells-all-new.json'} />
             <Item text={"Player's handbook"} fileName={'spells-phb.json'} />
+            <Item text={'All The Spells with 2024 (only use with the newest app version)'} fileName={'spells-all-2024.json'} />
         </Box>
     );
 };
