@@ -15,12 +15,12 @@ export function FileCard({ file, content }: FileCardProps) {
   const [downloading, setDownloading] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const formatFileSize = (bytes: number) => {
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    if (bytes === 0) return '0 Bytes';
-    const i = Math.floor(Math.log(bytes) / Math.log(1024));
-    return `${Math.round(bytes / Math.pow(1024, i))} ${sizes[i]}`;
-  };
+  // const formatFileSize = (bytes: number) => {
+  //   const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  //   if (bytes === 0) return '0 Bytes';
+  //   const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  //   return `${Math.round(bytes / Math.pow(1024, i))} ${sizes[i]}`;
+  // };
 
 
   const handleDownload = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, content: string) => {
@@ -59,9 +59,9 @@ export function FileCard({ file, content }: FileCardProps) {
           <div className="flex-1 min-w-0">
             <h3 className="font-medium text-lg truncate">{file.name}</h3>
             <p className="text-sm text-muted-foreground">
-              Last updated: {format(new Date(file.lastUpdated), 'MMM d, yyyy h:mm a')}
+              Last updated: {format(new Date(file.lastUpdated), 'MMM d, yyyy')}
             </p>
-            <p className="text-sm text-muted-foreground">{formatFileSize(file.size)}</p>
+            {/* <p className="text-sm text-muted-foreground">{formatFileSize(file.size)}</p> */}
           </div>
         </div>
         {file.description && (
