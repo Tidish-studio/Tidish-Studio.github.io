@@ -1,0 +1,16 @@
+---
+description: Vite + GitHub Pages SPA routing and privacy policy URL rules
+globs: "{vite.config.*,package.json,scripts/**/*.mjs,src/**/*.tsx,src/**/*.ts}"
+alwaysApply: false
+---
+
+# Vite + GitHub Pages SPA routing
+
+- Treat this as a **single-page app** (client-side routing). Deep links must be handled.
+- Ensure Wouter (or router) respects the deployment base path:
+  - Mount Wouter with `base={import.meta.env.BASE_URL}` so routes work under `/` or a subpath.
+- For GitHub Pages verification/robots (e.g. Google Play privacy policy checks), prefer emitting a **real static path**:
+  - `dist/privacy-policy/index.html` should exist so direct HTTP requests to `/privacy-policy/` return **200**.
+- Keep local dev/preview working:
+  - Don’t hardcode a non-root Vite `base` unless the site is definitely served from a subpath.
+

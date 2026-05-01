@@ -1,0 +1,12 @@
+---
+description: Build/deploy script expectations for this repo
+globs: "package.json"
+alwaysApply: false
+---
+
+# Build & deploy scripts (repo conventions)
+
+- `npm run build` must succeed on Windows and produce a deployable `dist/`.
+- `npm run deploy` is expected to publish `dist/` to GitHub Pages (via `gh-pages`).
+- Post-build steps are allowed when they improve deploy correctness (e.g. generating `404.html` SPA fallback, static `/privacy-policy/` page).
+

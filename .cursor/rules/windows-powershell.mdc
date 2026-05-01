@@ -1,0 +1,13 @@
+---
+description: Windows/PowerShell command conventions (avoid &&)
+alwaysApply: true
+---
+
+# Windows / PowerShell conventions
+
+- Prefer **PowerShell-safe** command chaining in docs and suggestions.
+  - ✅ Use `;` or separate commands (new lines)
+  - ❌ Avoid `&&` / `||` (can fail depending on PS version/environment)
+- When suggesting curl, prefer `curl.exe` (PowerShell aliases `curl` to `Invoke-WebRequest`).
+- Use Windows paths when referring to local files (e.g. `D:\Work\...`) unless the repo is clearly cross-platform.
+

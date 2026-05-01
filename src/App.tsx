@@ -5,7 +5,7 @@ import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import Privacy from "@/pages/privacy";
 import Resources from "@/pages/resources";
-import { Link, Route, Switch } from "wouter";
+import { Link, Route, Router, Switch } from "wouter";
 
 function Nav() {
   return (
@@ -27,7 +27,7 @@ function Nav() {
   );
 }
 
-function Router() {
+function Routes() {
   return (
     <>
       <Nav />
@@ -46,7 +46,9 @@ function App() {
     <ThemeProvider defaultTheme="light" storageKey="app-theme">
       <div className="min-h-screen bg-background text-foreground">
         <ThemeToggle />
-        <Router />
+        <Router base={import.meta.env.BASE_URL}>
+          <Routes />
+        </Router>
         <Toaster />
       </div>
     </ThemeProvider>
