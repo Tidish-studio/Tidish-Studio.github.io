@@ -57,3 +57,17 @@ created. `public/404.html` and the `sessionStorage.redirect` block in `src/main.
 
 Not yet confirmed in production: `/spells` returning 200 can only be verified after the maintainer
 deploys. Re-probe then.
+
+Confirmed in production 2026-08-05 after deploy:
+
+```
+/                 -> 200
+/spells           -> 301 -> /spells/ -> 200   (was 404)
+/privacy-policy   -> 301 -> /privacy-policy/ -> 200
+/app-ads.txt      -> 200
+/downloads/dnd-spells-5e-2014.json -> 200 (527 spells)
+/downloads/dnd-spells-5e-2024.json -> 200 (897 spells)
+/nope-xyz         -> 404  (correctly still a 404)
+```
+
+Closed.
