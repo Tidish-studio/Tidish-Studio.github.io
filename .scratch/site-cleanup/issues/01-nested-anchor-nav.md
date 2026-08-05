@@ -1,6 +1,6 @@
 # Nested `<a>` inside `<a>` in Nav
 
-Status: ready-for-agent
+Status: resolved
 
 ## Description
 
@@ -32,3 +32,14 @@ Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s <a
 
 Find the nested anchor structure in the Nav component and flatten it to a single `<a>`/wouter
 `Link` per nav item.
+
+## Comments
+
+Fixed 2026-08-05. Nav items in `src/App.tsx` are now a single wouter `Link` carrying the className,
+with no inner `<a>`. Verified: `document.querySelector('a a')` is null and the `validateDOMNesting`
+warning no longer appears in the console.
+
+Flattening this exposed a second, more serious bug that the nesting had been masking: `<Router
+base={import.meta.env.BASE_URL}>` produced protocol-relative hrefs (`//spells`, meaning the host
+`spells`). Fixed by stripping the trailing slash from the base. Nav hrefs are now `/`, `/spells`,
+`/privacy-policy`.

@@ -1,6 +1,6 @@
 # `dist/` build output is tracked in git on master
 
-Status: ready-for-agent
+Status: resolved
 
 ## Description
 
@@ -30,3 +30,9 @@ dist/vite.svg
 Add `/dist` to `.gitignore` and `git rm -r --cached dist` to untrack it (keep the files on disk).
 Confirm nothing else in the repo/workflow depends on `dist/` being committed on `master` before
 removing it.
+
+## Comments
+
+Fixed 2026-08-05. `/dist` added to `.gitignore` and `git rm -r --cached dist` run, so the build
+output is untracked while remaining on disk. The `gh-pages` branch still holds what GitHub Pages
+actually serves.

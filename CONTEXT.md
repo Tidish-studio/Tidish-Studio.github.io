@@ -15,7 +15,24 @@ and in some stale UI copy (e.g. the Privacy Policy page), not the current app na
 
 **Spell resource**: A downloadable JSON file of spell data, listed on `/spells`, that a user imports
 into the DnD Spells 5e app. Content is authored and provided directly by the maintainer — agents
-should never generate, infer, or edit spell JSON content themselves.
+should never generate, infer, or edit spell JSON content themselves. There are three kinds, and
+they are not interchangeable:
+
+**2014 spells**: The pre-2024 ruleset spell set. **Frozen** — this content is set in stone and will
+never be updated. It must always remain available as its own separate download; do not fold it into
+the 2024 set or retire it.
+
+**2024 spells**: The current ruleset spell set, including 2024 content. Updated on an ongoing basis
+as the maintainer revises it. Requires a recent version of the app to import correctly, which is why
+it is kept separate from the 2014 set.
+
+**Partnered spells**: Spells from partnered and third-party sources (e.g. crossover and
+setting-specific titles), distinct from the official 2014/2024 sets. Also updated on an ongoing
+basis. Drafted but not yet published on the site.
+
+**Live resource set**: Which spell files the `/spells` page actually offers. Changing this is
+gated on knowing which app version is in the wild, because an app that predates 2024 support cannot
+consume the 2024 set. Never swap the live files on assumption — confirm the app version first.
 
 **Privacy Policy page** (`/privacy-policy`): The app's Google Play–required privacy policy, hosted
 here so Play Store's URL verification has a real page to check. Its accuracy carries store-compliance

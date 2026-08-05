@@ -23,3 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /src/files
+# live spell downloads (kept out of source control, per maintainer)
+/public/downloads
+
+# build output (the gh-pages branch holds what GitHub Pages serves)
+/dist

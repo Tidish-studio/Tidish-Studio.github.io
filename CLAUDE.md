@@ -26,40 +26,52 @@ The parent directory (one level up) contains unrelated app-store/design collater
   `scripts/copy-spa-fallback.mjs` (see below)
 - `npm run lint` — ESLint (flat config, `eslint.config.js`)
 - `npm run preview` — preview the production build locally
-- `npm run deploy` — `predeploy` runs a build, then publishes `dist/` to GitHub Pages via `gh-pages`
+- `npm run deploy` — `predeploy` runs a build, then publishes `dist/` to GitHub Pages via `gh-pages`.
+  **Only run this when the maintainer explicitly asks for a deploy in that session.** Never as a
+  follow-on to finishing work, and never to "verify" a change. Verify locally instead
+  (`npm run build`, `npm run lint`, dev server or `npm run preview`) and hand back.
 
-There is no test suite in this project.
+There is no test suite in this project, and none is wanted. The verification gate for any change is
+`npm run build` + `npm run lint` + rendering the three routes locally with a clean console.
 
 ## Architecture
 
-Single-page app, client-routed with **Wouter** (`src/App.tsx`), mounted with
-`base={import.meta.env.BASE_URL}` so routing works whether served from `/` or a subpath. Routes:
-`/` (home/marketing), `/spells` (resources/downloads), `/privacy-policy`.
+Single-page app, client-routed with **Wouter** (`src/App.tsx`). Routes: `/` (home/marketing),
+`/spells` (resources/downloads), `/privacy-policy`. Path alias `@/*` → `src/*`
+(`tsconfig.app.json`, mirrored in `vite.config.ts`).
 
-- `src/components/ui/` — shadcn/ui primitives (Radix-based). Path alias `@/*` → `src/*`
-  (`tsconfig.app.json`, mirrored in `vite.config.ts`).
-- `src/lib/files.ts` — hardcoded metadata (name/description/date) for the two downloadable spell
-  data files shown on `/spells`.
-- `src/files/` — the actual spell JSON payloads served for download. **This directory is
-  git-ignored** (`.gitignore: /src/files`) — it exists locally but isn't in version control, so
-  `git clone` alone won't reproduce it. `FileGrid` (`src/components/file-grid.tsx`) imports the
-  JSON directly and wires each import positionally to `files[0]`/`files[1]` from `lib/files.ts` —
-  if you add/reorder entries in `lib/files.ts`, update the imports/indices in `file-grid.tsx` to
-  match.
-- `src/lib/queryClient.ts` and the `@tanstack/react-query` / `drizzle-kit` dependencies are unused
-  leftovers from the Replit full-stack template this project was bootstrapped from — there is no
-  backend or database in this app. Don't assume either is wired up.
-- Downloads are client-side only: `FileCard` (`src/components/file-card.tsx`) builds a `Blob` from
-  the JSON content and triggers an `<a download>` click; the progress bar is a simulated timer, not
-  a real transfer.
+The project was bootstrapped from a Replit full-stack template and carried a large amount of unused
+scaffolding (46 shadcn components, ~20 unused packages, a dead toast system, a `drizzle`/
+`react-query` layer with no backend behind it). That was stripped out in the 2026-08-05 cleanup;
+see `.scratch/site-cleanup/plan.md`. Don't reintroduce that shape. Two shadcn primitives remain,
+`button` and `card`, and the shadcn CLI is not configured — to add another, copy the file from
+ui.shadcn.com and install its Radix package.
+
+- `src/lib/files.ts` — the download manifest. Each `SpellResource` carries name, description,
+  `lastUpdated` and a `url` pointing into `public/downloads/`. This is the **only** file to edit when
+  publishing a new spell resource; nothing wires files positionally anymore.
+- `public/downloads/` — the spell JSON actually served. **Git-ignored** (`.gitignore:
+  /public/downloads`), deliberately: the maintainer keeps spell content out of the source branch. It
+  still reaches GitHub through the `gh-pages` branch, which is unavoidable when GitHub Pages serves
+  it. A fresh clone will build fine but the download links will 404 until the files are restored.
+- `src/files/` — the maintainer's archive of every spell file version, also git-ignored. **Not
+  served.** Do not confuse it with `public/downloads/`. Which archived file should go live is an
+  open question gated on the app version; see `.scratch/site-cleanup/issues/04-*`.
+- Downloads are plain `<a href download>` links to static files. No Blob, no fetch, no progress bar.
+- Spell JSON must never be `import`ed into a component. It was, once, and it put 5.4 MB of spell data
+  into the JS bundle that every homepage visitor downloaded.
 
 ### GitHub Pages deployment specifics (see `.cursor/rules/*.mdc` for the source of these)
 
 - Served from `/` (root), not a subpath — don't hardcode a non-root Vite `base`.
-- `scripts/copy-spa-fallback.mjs` runs after every build and copies `dist/index.html` to:
-  - `dist/404.html` — GitHub Pages' way of supporting client-side deep links.
-  - `dist/privacy-policy/index.html` — so direct HTTP requests to `/privacy-policy/` return a real
-    200 (needed for Google Play privacy-policy URL verification), not just a client redirect.
+- Wouter's `base` must have no trailing slash. `import.meta.env.BASE_URL` is `/`, and passing it
+  through unmodified makes wouter emit protocol-relative hrefs like `//spells` (which resolve to the
+  *host* `spells`). `src/App.tsx` strips the trailing slash.
+- `scripts/copy-spa-fallback.mjs` runs after every build. It copies `dist/index.html` to
+  `dist/404.html` as the catch-all, and emits `dist/<route>/index.html` for every route in its
+  `routes` list so direct requests return a real 200. **Keep that list in sync with the routes in
+  `src/App.tsx`**, and read `docs/adr/0001-static-route-stubs-for-github-pages.md` before touching
+  any of it — a 404 on `/privacy-policy` once got the app rejected from Google Play.
 - Windows/PowerShell: avoid `&&` in suggested command chains (use `;` or separate commands).
 
 ## Agent skills

@@ -8,7 +8,7 @@ export default function Privacy() {
           <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
           
           <div className="prose dark:prose-invert">
-            <p>Tidish-Studio built the Spellbook 5e app as a Free app. This SERVICE is provided by Tidish-Studio at no cost and is intended for use as is.</p>
+            <p>Tidish-Studio built the DnD Spells 5e app as a Free app. This SERVICE is provided by Tidish-Studio at no cost and is intended for use as is.</p>
             <p>
                 This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to
                 use my Service.
@@ -19,7 +19,7 @@ export default function Privacy() {
                 Privacy Policy.
             </p>
             <p>
-                The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at Spellbook 5e unless
+                The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at DnD Spells 5e unless
                 otherwise defined in this Privacy Policy.
             </p>
             <p>

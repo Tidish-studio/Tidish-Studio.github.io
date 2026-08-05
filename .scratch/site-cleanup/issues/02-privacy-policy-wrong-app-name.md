@@ -1,6 +1,6 @@
 # Privacy Policy page uses wrong app name
 
-Status: ready-for-agent
+Status: resolved
 
 ## Description
 
@@ -19,3 +19,10 @@ component/data file holds the policy text).
 Replace "Spellbook 5e" with "DnD Spells 5e" throughout the privacy policy copy. Grep the whole repo
 for other stale "Spellbook" references while in there (e.g. check for any other user-facing copy,
 not just this page).
+
+## Comments
+
+Fixed 2026-08-05. Both occurrences of "Spellbook 5e" in `src/pages/privacy.tsx` replaced with
+"DnD Spells 5e". Grepped `src/`, `index.html` and `README.md` for other stale references; none
+remain. Verified in the production build that the rendered page contains "DnD Spells 5e" and no
+"Spellbook 5e".

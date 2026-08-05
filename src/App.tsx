@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Toaster } from "@/components/ui/toaster";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import Privacy from "@/pages/privacy";
@@ -12,14 +11,14 @@ function Nav() {
     <nav className="p-4 border-b">
       <div className="container mx-auto flex justify-between items-center">
         <div className="space-x-4">
-          <Link href="/">
-            <a className="hover:text-primary transition-colors">Home</a>
+          <Link href="/" className="hover:text-primary transition-colors">
+            Home
           </Link>
-          <Link href="/spells">
-            <a className="hover:text-primary transition-colors">Spells</a>
+          <Link href="/spells" className="hover:text-primary transition-colors">
+            Spells
           </Link>
-          <Link href="/privacy-policy">
-            <a className="hover:text-primary transition-colors">Privacy Policy</a>
+          <Link href="/privacy-policy" className="hover:text-primary transition-colors">
+            Privacy Policy
           </Link>
         </div>
       </div>
@@ -41,15 +40,18 @@ function Routes() {
   );
 }
 
+// Wouter expects a base with no trailing slash. BASE_URL is "/" when served from the domain root,
+// which would otherwise produce protocol-relative hrefs like "//spells".
+const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="app-theme">
       <div className="min-h-screen bg-background text-foreground">
         <ThemeToggle />
-        <Router base={import.meta.env.BASE_URL}>
+        <Router base={routerBase}>
           <Routes />
         </Router>
-        <Toaster />
       </div>
     </ThemeProvider>
   );
