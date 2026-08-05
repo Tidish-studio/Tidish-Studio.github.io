@@ -9,6 +9,10 @@ Issues and specs (you may know a spec as a PRD) for this repo live as markdown f
 - Implementation issues are one file per ticket at `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` — never a single combined tickets file
 - Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
 - Comments and conversation history append to the bottom of the file under a `## Comments` heading
+- `.scratch/` **is committed to git**, despite the name. The tracker is meant to outlive a session,
+  so a local-only copy would defeat the point. Do not add it to `.gitignore`.
+- A finished issue gets `Status: resolved` plus a `## Comments` entry saying what was done and how
+  it was verified. Issues are not deleted.
 
 ## When a skill says "publish to the issue tracker"
 

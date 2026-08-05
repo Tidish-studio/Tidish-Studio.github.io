@@ -34,6 +34,35 @@ The parent directory (one level up) contains unrelated app-store/design collater
 There is no test suite in this project, and none is wanted. The verification gate for any change is
 `npm run build` + `npm run lint` + rendering the three routes locally with a clean console.
 
+## Local verification
+
+`npm run build` and `npm run lint` passing is necessary but not sufficient. This site's failure
+modes are things a typecheck cannot see: a 404 status behind a page that renders fine, a download
+link that resolves to HTML, a theme that shifts. Actually load it.
+
+1. `npm run preview` (serves the real build on 4173, not the dev server) and drive it in a browser.
+2. Check `/`, `/spells` and `/privacy-policy`, plus **fetch both download URLs and confirm they
+   parse as JSON arrays with the expected spell counts**. A download link that 404s still renders a
+   perfectly good-looking card.
+3. `npm run lint` currently reports 2 `react-refresh/only-export-components` warnings, on
+   `theme-provider.tsx` and `button.tsx`. Those are expected. **0 errors is the bar.**
+
+Gotchas that have cost time before:
+
+- **Browser extensions pollute the console.** A "clean console" check will surface a dozen
+  MetaMask/`ObjectMultiplex` warnings from `chrome-extension://` origins. Filter by source before
+  concluding the app is broken, or that it is fine.
+- **`gh` CLI is not installed here.** For anything about the GitHub repo, branches or Pages state,
+  use `WebFetch` against the GitHub web UI instead of shelling out.
+- **`du -sh node_modules` takes longer than the 2 minute Bash timeout** on this machine. Avoid it.
+- **Comparing rendered output against a previous build no longer works via `git show`.** `dist/` was
+  untracked in Aug 2026, so built output is no longer in history. To diff appearance against an
+  older commit, `git worktree add` that commit, build it there, and serve both with
+  `npx vite preview --outDir <path> --port <n>`.
+- **After `npm run deploy`, GitHub Pages takes a moment and your browser will happily show the old
+  build.** Poll with cache-busting query strings until the new asset hash appears before declaring
+  the deploy verified.
+
 ## Architecture
 
 Single-page app, client-routed with **Wouter** (`src/App.tsx`). Routes: `/` (home/marketing),
