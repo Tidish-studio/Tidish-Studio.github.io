@@ -5,8 +5,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Repository
 
 This is the "Spellbook" repo (remote: `git@github.com:Tidish-studio/Spellbook.git`, branch
-`master`) — a static marketing/download site for the Spellbook D&D companion mobile app, built with
-Vite + React + TypeScript, deployed to GitHub Pages.
+`master`) — a static marketing/download site for the DnD Spells 5e mobile app (see `CONTEXT.md` for
+the app's canonical name and this site's full purpose), built with Vite + React + TypeScript,
+deployed to GitHub Pages.
+
+**Repo identity note:** the GitHub repo was renamed from `Spellbook` to `Tidish-Studio.github.io`
+(the special `<org>.github.io` name, which is why the site publishes at the bare
+`https://tidish-studio.github.io/` root instead of a `/Spellbook/` subpath). The local remote URL
+above is the old name — GitHub transparently redirects git push/fetch for renamed repos, so it still
+works. `master` holds source; a separate `gh-pages` branch (pushed to by `npm run deploy`, see
+below) holds the built static output GitHub Pages actually serves — don't confuse the two.
 
 The parent directory (one level up) contains unrelated app-store/design collateral (`Images/`,
 `launchericons/`, `app.docx`, `spellbook.db`, etc.) — not part of this codebase, ignore it.
