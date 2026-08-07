@@ -4,6 +4,7 @@ import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import Privacy from "@/pages/privacy";
 import Resources from "@/pages/resources";
+import ResourcesTest from "@/pages/resources-test";
 import { Link, Route, Router, Switch } from "wouter";
 
 function Nav() {
@@ -33,6 +34,8 @@ function Routes() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/spells" component={Resources} />
+        {/* Intentionally absent from Nav — reachable by URL only. See CLAUDE.md. */}
+        <Route path="/spells-test" component={ResourcesTest} />
         <Route path="/privacy-policy" component={Privacy} />
         <Route component={NotFound} />
       </Switch>

@@ -32,7 +32,7 @@ The parent directory (one level up) contains unrelated app-store/design collater
   (`npm run build`, `npm run lint`, dev server or `npm run preview`) and hand back.
 
 There is no test suite in this project, and none is wanted. The verification gate for any change is
-`npm run build` + `npm run lint` + rendering the three routes locally with a clean console.
+`npm run build` + `npm run lint` + rendering all four routes locally with a clean console.
 
 ## Local verification
 
@@ -41,9 +41,11 @@ modes are things a typecheck cannot see: a 404 status behind a page that renders
 link that resolves to HTML, a theme that shifts. Actually load it.
 
 1. `npm run preview` (serves the real build on 4173, not the dev server) and drive it in a browser.
-2. Check `/`, `/spells` and `/privacy-policy`, plus **fetch both download URLs and confirm they
-   parse as JSON arrays with the expected spell counts**. A download link that 404s still renders a
-   perfectly good-looking card.
+2. Check `/`, `/spells`, `/spells-test` and `/privacy-policy`, plus **fetch every download URL in
+   `src/lib/files.ts` (both arrays) and confirm each parses as a JSON array with the expected spell
+   count**. A download link that 404s still renders a perfectly good-looking card.
+   Current expected counts: live `2014` 527, live `2024` 897, test `2024-test` 938,
+   test `partnered-test` 42.
 3. `npm run lint` currently reports 2 `react-refresh/only-export-components` warnings, on
    `theme-provider.tsx` and `button.tsx`. Those are expected. **0 errors is the bar.**
 
@@ -52,6 +54,10 @@ Gotchas that have cost time before:
 - **Browser extensions pollute the console.** A "clean console" check will surface a dozen
   MetaMask/`ObjectMultiplex` warnings from `chrome-extension://` origins. Filter by source before
   concluding the app is broken, or that it is fine.
+- **`npm run preview` returns 200 for *every* path**, including nonsense ones, because it falls back
+  to `index.html` itself. It therefore **cannot** verify the 200-vs-404 behaviour that ADR 0001 is
+  about. Locally the only evidence is that `dist/<route>/index.html` exists on disk; the real status
+  code can only be confirmed against GitHub Pages after a deploy.
 - **`gh` CLI is not installed here.** For anything about the GitHub repo, branches or Pages state,
   use `WebFetch` against the GitHub web UI instead of shelling out.
 - **`du -sh node_modules` takes longer than the 2 minute Bash timeout** on this machine. Avoid it.
@@ -66,8 +72,15 @@ Gotchas that have cost time before:
 ## Architecture
 
 Single-page app, client-routed with **Wouter** (`src/App.tsx`). Routes: `/` (home/marketing),
-`/spells` (resources/downloads), `/privacy-policy`. Path alias `@/*` → `src/*`
+`/spells` (resources/downloads), `/spells-test`, `/privacy-policy`. Path alias `@/*` → `src/*`
 (`tsconfig.app.json`, mirrored in `vite.config.ts`).
+
+**`/spells-test` is deliberately unlinked.** No nav entry, no home-page link, by design — it is the
+maintainer's staging page for spell files that aren't live yet (see "Test resource" in
+`CONTEXT.md`). It is not dead code and not an oversight: **don't delete it, and don't "fix" it by
+adding it to `Nav`.** It is published and reachable by URL; hidden here only means unadvertised, and
+that is the intended amount of hiding — no robots.txt entry, which would publicise the path more
+than silence does.
 
 The project was bootstrapped from a Replit full-stack template and carried a large amount of unused
 scaffolding (46 shadcn components, ~20 unused packages, a dead toast system, a `drizzle`/
@@ -78,11 +91,20 @@ ui.shadcn.com and install its Radix package.
 
 - `src/lib/files.ts` — the download manifest. Each `SpellResource` carries name, description,
   `lastUpdated` and a `url` pointing into `public/downloads/`. This is the **only** file to edit when
-  publishing a new spell resource; nothing wires files positionally anymore.
+  publishing a new spell resource; nothing wires files positionally anymore. Two exports: `files`
+  (live, rendered on `/spells`) and `testFiles` (unreleased, rendered on `/spells-test`).
 - `public/downloads/` — the spell JSON actually served. **Git-ignored** (`.gitignore:
   /public/downloads`), deliberately: the maintainer keeps spell content out of the source branch. It
   still reaches GitHub through the `gh-pages` branch, which is unavoidable when GitHub Pages serves
   it. A fresh clone will build fine but the download links will 404 until the files are restored.
+- `public/downloads/test/` — the same, for unreleased candidates. Covered by the same ignore rule.
+  Every file here **must end in `-test.json`**. That suffix is the whole point: once a file is
+  downloaded it sits in a Downloads folder with no folder context, and a test build that is
+  indistinguishable from a live one there is exactly the confusion this avoids. Promoting a
+  candidate means moving it up one directory, dropping the `-test` suffix, and moving its entry
+  from `testFiles` to `files`.
+  Publishing a test file is otherwise the identical workflow to a normal release: drop the file,
+  edit `files.ts`, build, deploy.
 - `src/files/` — the maintainer's archive of every spell file version, also git-ignored. **Not
   served.** Do not confuse it with `public/downloads/`. Which archived file should go live is an
   open question gated on the app version; see `.scratch/site-cleanup/issues/04-*`.

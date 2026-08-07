@@ -5,7 +5,7 @@ import path from "node:path";
 // Google Play rejected the app once because /privacy-policy answered 404, so keep this list in
 // sync with the routes in src/App.tsx.
 // See docs/adr/0001-static-route-stubs-for-github-pages.md before changing any of this.
-const routes = ["/spells", "/privacy-policy"];
+const routes = ["/spells", "/spells-test", "/privacy-policy"];
 
 const distDir = path.resolve(process.cwd(), "dist");
 const indexHtml = path.join(distDir, "index.html");

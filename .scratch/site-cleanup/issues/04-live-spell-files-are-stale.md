@@ -46,3 +46,39 @@ needs to confirm the shipped app version first. See "Live resource set" in `CONT
 
 The `public/spells/` migration (moving JSON out of the bundle) should preserve the **current** two
 downloads exactly as they are. That migration is a restructure, not a content change.
+
+## Comments
+
+**2026-08-07** — Still `needs-info`, but step 1 of "Next step" now has a mechanism instead of
+depending on a swap-and-hope. Added `/spells-test`, an unlinked page rendering `testFiles` from
+`src/lib/files.ts` out of `public/downloads/test/`. Two files staged there, both byte-identical
+copies of the maintainer's archive:
+
+| Card | Test file | From | Spells |
+| --- | --- | --- | --- |
+| All The Spells 2024 | `test/dnd-spells-5e-2024-test.json` | `src/files/spells-all.json` | 938 |
+| Partnered Spells | `test/dnd-spells-5e-partnered-test.json` | `src/files/Partnered-other-2025-02-28.json` | 42 |
+
+Deployed 2026-08-07. This changes nothing about what `/spells` serves — the live pair is untouched,
+and the blocker above still stands until the import is actually tried.
+
+### Content survey done while staging
+
+Comparing by `name|source` (a spell name alone is not an identity — `PHB` is the 2014 printing and
+`XPHB` the 2024 one, so most names appear twice):
+
+- **Live 2024 (897) is a strict subset of the staged 938.** The 41 additions are six whole sources:
+  `FRHoF` 19, `EGW` 15, `LLK` 3, `TDCSR` 2, `AitFR-AVT` 1, `EFA` 1. Live 2024 carries no
+  partnered/third-party content at all.
+- **Live 2014 (527) carries 21 partnered spells** (`EGW`/`LLK`/`TDCSR`/`AitFR-AVT`), and its other
+  506 entries all appear in live 2024. The frozen set is not partnered-free.
+- **The two 2024 archive candidates diverge in both directions.** `All-2024-2025-02-28.json` (939)
+  holds 21 `DoDk`/`GHLoE` spells that `spells-all.json` (938) lacks; `spells-all.json` holds 20
+  `FRHoF`/`EFA` spells the older one lacks. The newer file both added and **dropped** content.
+- **Consequence:** no single file on the test page has full coverage. `DoDk`/`GHLoE` exist only in
+  the partnered download, `FRHoF`/`EFA` only in the 2024 download. Importing both is currently the
+  only route to everything.
+
+Whether dropping `DoDk`/`GHLoE` from `spells-all.json` was deliberate is unresolved and is a
+question for the maintainer. Per `CONTEXT.md` the files were staged exactly as authored — no
+merging, deduplication or reconciliation was performed.
