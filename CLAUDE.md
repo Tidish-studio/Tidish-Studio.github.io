@@ -93,6 +93,9 @@ ui.shadcn.com and install its Radix package.
   `lastUpdated` and a `url` pointing into `public/downloads/`. This is the **only** file to edit when
   publishing a new spell resource; nothing wires files positionally anymore. Two exports: `files`
   (live, rendered on `/spells`) and `testFiles` (unreleased, rendered on `/spells-test`).
+  `lastUpdated` tracks the site action (when the file went live/was staged on this site), not when
+  the maintainer authored the spell content — bump it on every promotion, including ones that don't
+  change the file's identity (e.g. a live file's content being replaced in place).
 - `public/downloads/` — the spell JSON actually served. **Git-ignored** (`.gitignore:
   /public/downloads`), deliberately: the maintainer keeps spell content out of the source branch. It
   still reaches GitHub through the `gh-pages` branch, which is unavoidable when GitHub Pages serves
@@ -106,8 +109,9 @@ ui.shadcn.com and install its Radix package.
   Publishing a test file is otherwise the identical workflow to a normal release: drop the file,
   edit `files.ts`, build, deploy.
 - `src/files/` — the maintainer's archive of every spell file version, also git-ignored. **Not
-  served.** Do not confuse it with `public/downloads/`. Which archived file should go live is an
-  open question gated on the app version; see `.scratch/site-cleanup/issues/04-*`.
+  served.** Do not confuse it with `public/downloads/`. Which archived file should go live is
+  gated on the app version, decided per release — see `docs/adr/0002-*.md` for the most recent
+  resolution of that question.
 - Downloads are plain `<a href download>` links to static files. No Blob, no fetch, no progress bar.
 - Spell JSON must never be `import`ed into a component. It was, once, and it put 5.4 MB of spell data
   into the JS bundle that every homepage visitor downloaded.

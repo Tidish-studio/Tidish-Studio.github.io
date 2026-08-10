@@ -30,7 +30,7 @@ compatibility is the reason it is a separate download**, not a content split. It
 
 **Partnered spells**: Spells from partnered and third-party sources (e.g. crossover and
 setting-specific titles), distinct from the official 2014/2024 sets. Also updated on an ongoing
-basis. Published as a test resource, not yet live.
+basis. Live on `/spells` as of 2026-08-10.
 
 "Not interchangeable" means one set cannot stand in for another, **not** that the sets are disjoint.
 In practice they overlap across every pair: the 2014 download carries partnered spells of its own,

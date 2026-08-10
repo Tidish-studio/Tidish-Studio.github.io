@@ -1,6 +1,6 @@
 # Live spell downloads are stale, pending app version check
 
-Status: needs-info
+Status: resolved
 
 ## Description
 
@@ -82,3 +82,10 @@ Comparing by `name|source` (a spell name alone is not an identity — `PHB` is t
 Whether dropping `DoDk`/`GHLoE` from `spells-all.json` was deliberate is unresolved and is a
 question for the maintainer. Per `CONTEXT.md` the files were staged exactly as authored — no
 merging, deduplication or reconciliation was performed.
+
+**2026-08-10** — Resolved. Maintainer confirmed a new app version is out, satisfying the blocker.
+Both staged files promoted to live as-is (content gap accepted, not reconciled — see
+`docs/adr/0002-promote-2024-and-partnered-spells-to-live.md`). `/spells` now serves three cards:
+2014 (unchanged), 2024 (938 spells), Partnered (42 spells, live for the first time).
+`testFiles` in `src/lib/files.ts` is now empty and the staged files under `public/downloads/test/`
+were deleted.
