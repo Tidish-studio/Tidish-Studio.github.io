@@ -1,6 +1,6 @@
 # Write a spell-update skill
 
-Status: ready-for-agent
+Status: resolved
 
 ## Description
 
@@ -42,3 +42,14 @@ The steps are three lines. The value is the guardrails:
 
 - `CONTEXT.md` — definitions of the three spell kinds and the "Live resource set" gate
 - Issue 04 — the currently stale live files, blocked on the app-version question
+
+## Comments
+
+**2026-08-10** — Resolved for the promotion half of this workflow: `/release-spells`
+(`.claude/skills/release-spells/SKILL.md`), a user-invoked skill covering exactly the guardrails
+listed above (app-version gate, frozen 2014, maintainer-only content, never `import`ed JSON,
+git-ignored `public/downloads/`, never deploy unasked). Built and exercised for real by promoting
+the 2024 and Partnered test resources to live — see issue 04 and
+`docs/adr/0002-promote-2024-and-partnered-spells-to-live.md`. Staging a brand-new file into
+`testFiles` in the first place remains a separate, unwritten workflow — this issue's scope was
+narrowed to promotion only when the maintainer requested the skill.

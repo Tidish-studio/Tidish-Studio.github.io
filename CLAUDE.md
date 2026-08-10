@@ -142,3 +142,9 @@ Default five canonical roles used as-is. See `docs/agents/triage-labels.md`.
 ### Domain docs
 
 Single-context — `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+### Releasing spells
+
+Promoting a resource from `testFiles` to live (`files`) is `/release-spells`, a user-invoked skill
+at `.claude/skills/release-spells/SKILL.md` — it will not fire on its own. Staging a brand-new file
+into `testFiles` in the first place is a separate, still-undocumented workflow.
