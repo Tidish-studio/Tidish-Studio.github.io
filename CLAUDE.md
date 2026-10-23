@@ -57,7 +57,9 @@ Gotchas that have cost time before:
 - **`npm run preview` returns 200 for *every* path**, including nonsense ones, because it falls back
   to `index.html` itself. It therefore **cannot** verify the 200-vs-404 behaviour that ADR 0001 is
   about. Locally the only evidence is that `dist/<route>/index.html` exists on disk; the real status
-  code can only be confirmed against GitHub Pages after a deploy.
+  code can only be confirmed against GitHub Pages after a deploy. There, a route without a trailing
+  slash (`/privacy-policy`) answers **301** to `/privacy-policy/`, which answers 200. That redirect
+  is GitHub Pages serving the stub directory and is fine; check with `curl -L` or the slash form.
 - **`gh` CLI is not installed here.** For anything about the GitHub repo, branches or Pages state,
   use `WebFetch` against the GitHub web UI instead of shelling out.
 - **`du -sh node_modules` takes longer than the 2 minute Bash timeout** on this machine. Avoid it.
@@ -68,6 +70,9 @@ Gotchas that have cost time before:
 - **After `npm run deploy`, GitHub Pages takes a moment and your browser will happily show the old
   build.** Poll with cache-busting query strings until the new asset hash appears before declaring
   the deploy verified.
+- **Run `npm run deploy` as a bare command, never chained.** Under auto mode the classifier blocks
+  it as a production deploy unless it matches the exact `Bash(npm run deploy)` allow rule in
+  `.claude/settings.local.json`; the broader `npm run *` rule does not get it through.
 
 ## Architecture
 
