@@ -10,8 +10,8 @@ maintenance is publishing new/updated spell resources as the app's spell library
 
 **DnD Spells 5e**: The canonical name of the mobile app this site promotes and the product this
 site exists to sell.
-_Avoid_: Spellbook 5e, Spellbook — an earlier working name still present in the repo/package name
-and in some stale UI copy (e.g. the Privacy Policy page), not the current app name.
+_Avoid_: Spellbook 5e, Spellbook — an earlier working name still present in the repo/package name,
+not the current app name.
 
 **Spell resource**: A downloadable JSON file of spell data that a user imports into the DnD Spells
 5e app. Content is authored and provided directly by the maintainer — agents should never generate,

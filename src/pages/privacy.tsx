@@ -6,121 +6,168 @@ export default function Privacy() {
       <Card className="max-w-4xl mx-auto">
         <CardContent className="p-6">
           <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-          
+
           <div className="prose dark:prose-invert">
-            <p>Tidish-Studio built the DnD Spells 5e app as a Free app. This SERVICE is provided by Tidish-Studio at no cost and is intended for use as is.</p>
             <p>
-                This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to
-                use my Service.
+              Tidish-Studio built the DnD Spells 5e app as a free app. This service is provided by Tidish-Studio at no cost and is intended for use as is.
             </p>
             <p>
-                If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information
-                that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this
-                Privacy Policy.
+              This page explains what information the app handles, who receives it, and the choices you have. If you use the app, you agree to the
+              handling of information described here. I will not use or share your information with anyone except as described in this policy.
             </p>
-            <p>
-                The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at DnD Spells 5e unless
-                otherwise defined in this Privacy Policy.
-            </p>
-            <p>
-                <h2>Information Collection and Use</h2>
-            </p>
-            <p>
-                For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including
-                but not limited to
-                <ul>
-                    <li> Storage</li>
-                    <li> Accounts</li>
-                </ul>
-            </p>
-            <div>
-                <p>The app does use third-party services that may collect information used to identify you.</p>
-                <p>Link to the privacy policy of third-party service providers used by the app</p>
-                <ul>
-                    <li>
-                        <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">
-                            Google Play Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank" rel="noopener noreferrer">
-                            AdMob
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>
-                <h2>Log Data</h2>
-            </p>
-            <p>
-                I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party
-                products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device
-                name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other
-                statistics.
-            </p>
-            <p>
-                <h2>Cookies</h2>
-            </p>
-            <p>
-                Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the
-                websites that you visit and are stored on your device&apos;s internal memory.
-            </p>
-            <p>
-                This Service does not use these “cookies” explicitly. However, the app may use third-party code and libraries that use “cookies” to collect
-                information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to
-                your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
-            </p>
-            <p>
-                <h2>Service Providers</h2>
-            </p>
-            <p>I may employ third-party companies and individuals due to the following reasons:</p>
+
+            <h2>The short version</h2>
             <ul>
-                <li>To facilitate our Service;</li> <li>To provide the Service on our behalf;</li> <li>To perform Service-related services; or</li>
-                <li>To assist us in analyzing how our Service is used.</li>
+              <li>The app has no accounts and no sign-in. I run no server and receive no copy of your spellbooks.</li>
+              <li>Your spellbooks, prepared spells, spell slots, labels and settings stay on your device.</li>
+              <li>The app shows ads through Google AdMob. Where the law requires it, you can choose whether ads may be personalized, and change your answer later.</li>
+              <li>The app sends crash reports to Firebase Crashlytics. You can ask me to delete the ones your device sent.</li>
+            </ul>
+
+            <h2>Data stored on your device</h2>
+            <p>
+              Your spellbooks, prepared spells, spell slots, favorites, labels, tabs, any spells you import, and the app&apos;s settings are stored in the
+              app&apos;s private storage on your device. This data is not sent to me. Removing the app removes it.
+            </p>
+            <p>
+              <strong>Backups you make.</strong> In Settings, Backup &amp; Restore writes one file containing your spellbooks and spells (including prepared spells, spell
+              slots, labels, tabs and any spells you imported), but not the app&apos;s settings. You choose where that file is saved, and restoring reads a file you choose. I never receive these files; where they go afterwards depends on the place you
+              saved them.
+            </p>
+            <p>
+              <strong>Android device backup.</strong> Android can back up app data to your Google account as part of its own device backup (shown in
+              your phone as Backup by Google One). The app allows this. Google controls that backup and your account settings turn it on or off. I
+              cannot see or read it.
+            </p>
+
+            <h2>Ads (Google AdMob)</h2>
+            <p>
+              The app is free and shows ads using Google AdMob: a banner on some pages, and an optional ad you can watch for a period without banner
+              ads. Google collects and processes information to serve and measure these ads, such as your device&apos;s advertising ID, IP address,
+              device and app information, and how you interact with ads. Ads may be personalized, based on your advertising ID and your activity, or
+              non-personalized.
+            </p>
+            <p>
+              <strong>Your choice.</strong> If you are in the European Economic Area, the United Kingdom or Switzerland, the app asks you on
+              launch, in a message provided by Google, whether ads may use your information for personalization. If you are in a US state with a
+              privacy law that gives you the right, you can opt out of personalized ads in a message provided by Google. In both cases you open
+              that message, and change your answer at any time, in Settings, under Privacy, with &quot;Privacy options&quot;. That row appears
+              only where the law requires the choice. Everywhere else ads may be personalized.
+            </p>
+            <p>
+              Independently of the app, you can reset or delete your advertising ID, or opt out of ads personalization, in your Android device
+              settings (usually under Privacy, then Ads).
+            </p>
+            <p>
+              Buying &quot;Remove ads&quot; or watching an ad for an ad-free period stops banner ads from being shown. See the Google links below for
+              how Google handles data.
+            </p>
+
+            <h2>Crash reports (Firebase Crashlytics)</h2>
+            <p>
+              When the app crashes, it can send a crash report to Firebase Crashlytics, a Google service, so I can find and fix the problem. The app
+              sends these reports whenever it can, and there is no switch to turn them off. A report contains the technical details of the crash (the stack trace), your device model, Android version, app
+              version, the state of the device at the time (such as free memory and storage), and a Firebase installation ID that identifies the app
+              installation, not you. The app adds three details to each report: which ruleset you use (2014 or 2024), how many sources you have
+              enabled, and how many spellbooks you have. The app attaches no personal details such as your name or email address. The error messages in a report are technical and may
+              occasionally include a fragment of spell data, for example when an imported file cannot be read.
+            </p>
+            <p>
+              <strong>Deleting your crash data.</strong> At the bottom of Settings the app shows its contact email on the left and an App ID on the
+              right (tap either to copy it). The App ID is the Firebase installation ID attached to your crash reports. To have the crash data your
+              device sent deleted, email me at tidishstudio@gmail.com with that App ID, and I will delete the data for that installation. Otherwise
+              Crashlytics keeps reports for 90 days and then deletes them.
+            </p>
+
+            <h2>Purchases and tips</h2>
+            <p>
+              Purchases (removing ads) and optional tips are handled by Google Play. I do not receive your payment details. I learn only that a
+              purchase happened, through Google Play, so the app can unlock it.
+            </p>
+
+            <h2>Other Google services the app uses</h2>
+            <ul>
+              <li>Google Play: to check whether a newer version of the app is available, and when you choose to rate the app or buy something.</li>
+              <li>Google Fonts: the app loads its text font from Google, which means Google receives your IP address when it does.</li>
+            </ul>
+
+            <h2>Third-party privacy policies</h2>
+            <ul>
+              <li>
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services and Google Fonts</a>
+              </li>
+              <li>
+                <a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank" rel="noopener noreferrer">AdMob</a>
+              </li>
+              <li>
+                <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses data from apps that use its services</a>
+              </li>
+              <li>
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase and Crashlytics</a>
+              </li>
+            </ul>
+
+            <h2>Service providers</h2>
+            <p>I use the third parties named above to show ads, find crashes and process purchases. They receive only what they need for that purpose, under their own policies.</p>
+
+            <h2>Your rights (GDPR)</h2>
+            <p>
+              If you are in the European Economic Area, the United Kingdom or Switzerland, the law gives you rights over personal data held about you.
+              I process data on two bases: your consent, for personalized ads, which you can withdraw at any time through Privacy options in Settings;
+              and my legitimate interest in keeping the app working, for crash reports. If you object to that, email me the App ID shown at the
+              bottom of Settings and I will delete that installation&apos;s crash data.
+            </p>
+            <p>You have the right to:</p>
+            <ul>
+              <li>ask what personal data is held about you, and get a copy;</li>
+              <li>have inaccurate data corrected, or data erased;</li>
+              <li>restrict or object to how your data is used;</li>
+              <li>receive your data in a portable form;</li>
+              <li>withdraw consent you gave earlier; and</li>
+              <li>complain to your local data protection authority.</li>
             </ul>
             <p>
-                I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks
-                assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+              To use any of these, email me at tidishstudio@gmail.com. The app has no accounts, so I hold nothing that names you; the only identifier
+              in my own records is the Firebase installation ID attached to crash reports, which I cannot link to a person on my own. Tell me what
+              you are asking and I will explain what I can and cannot find. Data that Google holds as its own controller, such as AdMob&apos;s ad data, is handled by
+              Google, and you can use Google&apos;s own tools for it. Google may process data outside your country; see Google&apos;s policies above.
             </p>
+
+            <h2>Your rights in US states</h2>
             <p>
-                <h2>Security</h2>
+              If you live in a US state with a consumer privacy law, you may have the right to know what personal information is collected, to ask for
+              its deletion, and to opt out of its use for targeted advertising. Where this applies, you can opt out in Settings, under Privacy,
+              with &quot;Privacy options&quot;. I do not sell personal information for money. You can also email me at
+              tidishstudio@gmail.com.
             </p>
+
+            <h2>Security</h2>
             <p>
-                I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But
-                remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee
-                its absolute security.
+              I value your trust and use commercially reasonable means to protect information. No method of transmission over the internet or of
+              electronic storage is completely secure, so I cannot guarantee absolute security.
             </p>
+
+            <h2>Links to other sites</h2>
             <p>
-                <h2>Links to Other Sites</h2>
+              The app and this page link to other sites. If you open one, you leave my service. I do not operate those sites, and I strongly advise
+              you to read their privacy policies. I have no control over, and take no responsibility for, their content, policies or practices.
             </p>
+
+            <h2>Children&apos;s privacy</h2>
             <p>
-                This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external
-                sites are not operated by me. Therefore, I h2ly advise you to review the Privacy Policy of these websites. I have no control over and assume
-                no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+              The app does not address anyone under the age of 13. I do not knowingly collect personal information from children under 13. If you
+              are a parent or guardian and you know that your child has given me personal information, please contact me so I can take the necessary
+              action.
             </p>
+
+            <h2>Changes to this privacy policy</h2>
             <p>
-                <h2>Children&apos;s Privacy</h2>
+              I may update this policy from time to time. Please review this page periodically. I will post any changes here.
             </p>
-            <div>
-                <p>
-                    These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under
-                    13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our
-                    servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so
-                    that I will be able to do the necessary actions.
-                </p>
-            </div>
-            <p>
-                <h2>Changes to This Privacy Policy</h2>
-            </p>
-            <p>
-                I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of
-                any changes by posting the new Privacy Policy on this page.
-            </p>
-            <p>This policy is effective as of 2024-02-12</p>
-            <p>
-                <h2>Contact Us</h2>
-            </p>
-            <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at tidishstudio@gmail.com.</p>
+            <p>This policy is effective as of 2026-10-17.</p>
+
+            <h2>Contact us</h2>
+            <p>If you have any questions or suggestions about this policy, contact me at tidishstudio@gmail.com.</p>
           </div>
         </CardContent>
       </Card>
