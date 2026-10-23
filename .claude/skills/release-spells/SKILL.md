@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 Promote one or more entries from `testFiles` (in `src/lib/files.ts`) to `files`, so they go live on
 `/spells`. This is the second half of publishing a spell resource — the first half, staging a brand
-new file into `testFiles` in the first place, is a different workflow and out of scope here.
+new file into `testFiles` in the first place, is the `import-spells` skill.
 
 ## Steps
 

@@ -53,3 +53,11 @@ the 2024 and Partnered test resources to live — see issue 04 and
 `docs/adr/0002-promote-2024-and-partnered-spells-to-live.md`. Staging a brand-new file into
 `testFiles` in the first place remains a separate, unwritten workflow — this issue's scope was
 narrowed to promotion only when the maintainer requested the skill.
+
+**2026-10-23** — The other half now exists too: `import-spells`
+(`.claude/skills/import-spells/SKILL.md`), model-invoked so it fires on a plain "I added new spells
+in this folder" request. It covers bringing a file in from the maintainer's dated spell folder,
+either straight live or staged into `testFiles`, with `diff-spells.mjs` identifying which set the
+file replaces and what it adds or drops by source. Written after the 2024 set was replaced in place
+for app 2.3.0 (`docs/adr/0003-replace-live-2024-spells-for-app-2-3-0.md`); the diff script was run
+against that file and confirmed to exit non-zero on a missing argument or a non-array file.

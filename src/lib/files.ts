@@ -21,7 +21,7 @@ export const files: SpellResource[] = [
     id: 2,
     name: "All The Spells 2024",
     description: "All The Spells with 2024 (only use with the newest app version)",
-    lastUpdated: new Date("2026-08-10"),
+    lastUpdated: new Date("2026-10-23"),
     url: downloadUrl("dnd-spells-5e-2024.json"),
   },
   {

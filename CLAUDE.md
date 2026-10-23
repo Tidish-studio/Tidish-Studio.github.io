@@ -44,8 +44,8 @@ link that resolves to HTML, a theme that shifts. Actually load it.
 2. Check `/`, `/spells`, `/spells-test` and `/privacy-policy`, plus **fetch every download URL in
    `src/lib/files.ts` (both arrays) and confirm each parses as a JSON array with the expected spell
    count**. A download link that 404s still renders a perfectly good-looking card.
-   Current expected counts: live `2014` 527, live `2024` 897, test `2024-test` 938,
-   test `partnered-test` 42.
+   Current expected counts: live `2014` 527, live `2024` 965, live `partnered` 42. No test
+   resources are staged right now.
 3. `npm run lint` currently reports 2 `react-refresh/only-export-components` warnings, on
    `theme-provider.tsx` and `button.tsx`. Those are expected. **0 errors is the bar.**
 
@@ -146,5 +146,6 @@ Single-context — `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents
 ### Releasing spells
 
 Promoting a resource from `testFiles` to live (`files`) is `/release-spells`, a user-invoked skill
-at `.claude/skills/release-spells/SKILL.md` — it will not fire on its own. Staging a brand-new file
-into `testFiles` in the first place is a separate, still-undocumented workflow.
+at `.claude/skills/release-spells/SKILL.md` — it will not fire on its own. Bringing a new file in
+from the maintainer's spell folder, straight live or staged into `testFiles`, is the model-invoked
+`import-spells` skill (`.claude/skills/import-spells/SKILL.md`).
