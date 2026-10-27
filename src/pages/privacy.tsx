@@ -22,6 +22,7 @@ export default function Privacy() {
               <li>Your spellbooks, prepared spells, spell slots, labels and settings stay on your device.</li>
               <li>The app shows ads through Google AdMob. Where the law requires it, you can choose whether ads may be personalized, and change your answer later.</li>
               <li>The app sends crash reports to Firebase Crashlytics. You can ask me to delete the ones your device sent.</li>
+              <li>If you choose to report a bug or leave feedback from the app, what you write and a few app details are stored in Google Firebase so I can read it. A bug report can also carry your email address, if you give one, so I can reply. You can ask me to delete either.</li>
             </ul>
 
             <h2>Data stored on your device</h2>
@@ -79,6 +80,35 @@ export default function Privacy() {
               Crashlytics keeps reports for 90 days and then deletes them.
             </p>
 
+            <h2>Bug reports and feedback you send (Cloud Firestore)</h2>
+            <p>
+              The app has two forms. Nothing is sent from either unless you fill it in and press Send.
+            </p>
+            <p>
+              <strong>Report a bug.</strong> Open it from Settings, or from the Report button on the message shown when an import of spells fails. A bug
+              report contains your message, your email address if you entered one, and three details the app adds: the app version, your Android
+              version, and the App ID (the same Firebase installation ID shown at the bottom of Settings and attached to crash reports). When you report
+              a failed import, the report also contains the technical error message from that import. It may include a fragment of the file you tried
+              to import or its file name. The form lists these details before you send.
+            </p>
+            <p>
+              <strong>Leave feedback.</strong> Open it from Settings or the Remove Ads page. Feedback contains the rating you chose (one of five faces), the parts of
+              the app you ticked as liked, your message if you wrote one, and the app version. It carries no email address, no Android version and no App ID, so I cannot reply to it or
+              link it to your installation. The rating stays with me: it is not posted to Google Play.
+            </p>
+            <p>
+              I use bug reports only to understand the problem and, if you gave an email address, to reply to you from my own email. The App ID lets me
+              match a bug report with crash reports from the same installation. I use feedback only to learn what works and what does not. Both are
+              stored in Cloud Firestore, a Google Firebase database, in the European Union. Only I can read them; the app itself cannot read them back,
+              and they are not used for ads or shared with anyone.
+            </p>
+            <p>
+              <strong>Deleting what you sent.</strong> Bug reports and feedback are kept until I delete them; there is no automatic expiry. To have your
+              bug reports deleted, email me at tidishstudio@gmail.com with the App ID from the bottom of Settings, or the email address you entered in
+              the report, and I will delete every report that carries it. Feedback carries neither, so to have it deleted, tell me roughly when you
+              sent it and what you wrote, and I will delete what matches.
+            </p>
+
             <h2>Purchases and tips</h2>
             <p>
               Purchases (removing ads) and optional tips are handled by Google Play. I do not receive your payment details. I learn only that a
@@ -88,6 +118,11 @@ export default function Privacy() {
             <h2>Other Google services the app uses</h2>
             <ul>
               <li>Google Play: to check whether a newer version of the app is available, and when you choose to rate the app or buy something.</li>
+              <li>
+                Google Play&apos;s review card: now and then, after you have used the app for a while, the app may ask Google Play to show its own card
+                for rating the app. Google decides whether it appears. A rating or review you leave there goes to Google Play under its policy; the app is
+                not told whether you rated it or what you wrote.
+              </li>
               <li>Google Fonts: the app loads its text font from Google, which means Google receives your IP address when it does.</li>
             </ul>
 
@@ -103,19 +138,20 @@ export default function Privacy() {
                 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses data from apps that use its services</a>
               </li>
               <li>
-                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase and Crashlytics</a>
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase, Crashlytics and Cloud Firestore</a>
               </li>
             </ul>
 
             <h2>Service providers</h2>
-            <p>I use the third parties named above to show ads, find crashes and process purchases. They receive only what they need for that purpose, under their own policies.</p>
+            <p>I use the third parties named above to show ads, find crashes, store the bug reports and feedback you send and process purchases. They receive only what they need for that purpose, under their own policies.</p>
 
             <h2>Your rights (GDPR)</h2>
             <p>
               If you are in the European Economic Area, the United Kingdom or Switzerland, the law gives you rights over personal data held about you.
-              I process data on two bases: your consent, for personalized ads, which you can withdraw at any time through Privacy options in Settings;
-              and my legitimate interest in keeping the app working, for crash reports. If you object to that, email me the App ID shown at the
-              bottom of Settings and I will delete that installation&apos;s crash data.
+              I process data on three bases: your consent, for personalized ads, which you can withdraw at any time through Privacy options in Settings;
+              my legitimate interest in keeping the app working, for crash reports; and your choice to send it, for bug reports and feedback, which
+              you can take back by asking me to delete it. If you object to any of this, email me the App ID shown at the bottom of Settings and I
+              will delete that installation&apos;s crash data and bug reports. Feedback is not tied to the App ID; see above for deleting it.
             </p>
             <p>You have the right to:</p>
             <ul>
@@ -127,8 +163,9 @@ export default function Privacy() {
               <li>complain to your local data protection authority.</li>
             </ul>
             <p>
-              To use any of these, email me at tidishstudio@gmail.com. The app has no accounts, so I hold nothing that names you; the only identifier
-              in my own records is the Firebase installation ID attached to crash reports, which I cannot link to a person on my own. Tell me what
+              To use any of these, email me at tidishstudio@gmail.com. The app has no accounts. The identifiers in my own records are the Firebase
+              installation ID attached to crash reports and bug reports, which I cannot link to a person on my own, and the email address in any bug
+              report where you entered one, together with what you wrote. Feedback carries neither. Tell me what
               you are asking and I will explain what I can and cannot find. Data that Google holds as its own controller, such as AdMob&apos;s ad data, is handled by
               Google, and you can use Google&apos;s own tools for it. Google may process data outside your country; see Google&apos;s policies above.
             </p>
@@ -164,7 +201,7 @@ export default function Privacy() {
             <p>
               I may update this policy from time to time. Please review this page periodically. I will post any changes here.
             </p>
-            <p>This policy is effective as of 2026-10-17.</p>
+            <p>This policy is effective as of 2026-10-27.</p>
 
             <h2>Contact us</h2>
             <p>If you have any questions or suggestions about this policy, contact me at tidishstudio@gmail.com.</p>
