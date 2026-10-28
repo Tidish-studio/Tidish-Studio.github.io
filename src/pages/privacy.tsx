@@ -201,7 +201,7 @@ export default function Privacy() {
             <p>
               I may update this policy from time to time. Please review this page periodically. I will post any changes here.
             </p>
-            <p>This policy is effective as of 2026-10-27.</p>
+            <p>This policy is effective as of 2026-10-28.</p>
 
             <h2>Contact us</h2>
             <p>If you have any questions or suggestions about this policy, contact me at tidishstudio@gmail.com.</p>
